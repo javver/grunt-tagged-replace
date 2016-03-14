@@ -1,0 +1,7 @@
+{
+  "name": "Grunt-tagged-replace",
+  "tagline": "Replace pieces of your source using comment tags to identify the location.",
+  "body": "# Tagged Replace Grunt Plugin\r\nA grunt plugin that replaces pieces of your source using comment tags to identify the location.\r\n\r\n## What it does\r\n\r\nIt takes code like:\r\n\r\n    let server = /*server*/ DEVSERVER /*/server*/\r\n\r\nAnd allows you to configure a target like:\r\n\r\n    grunt.initConfig({\r\n      taggedReplace: {\r\n        dev: {\r\n          tags: [\r\n            {\r\n              server: 'DEVSERVER'\r\n            }\r\n          ]\r\n        },\r\n        prod: {\r\n        tags: [\r\n          {\r\n            server: 'PRODSERVER'\r\n          }\r\n        ]\r\n        }\r\n      }\r\n    })\r\n\r\n    grunt.registerTask('buildprod', ['taggedReplace:prod'])\r\n    grunt.registerTask('builddev', ['taggedReplace:dev'])\r\n\r\nThen just run: `grunt buildprod`",
+  "google": "UA-66030421-2",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
