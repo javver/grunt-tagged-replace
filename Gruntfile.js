@@ -10,6 +10,11 @@
 
 module.exports = function(grunt) {
 
+  require('time-grunt')(grunt);
+  require('jit-grunt')(grunt, {
+
+  });
+
   // Project configuration.
   grunt.initConfig({
     jshint: {
@@ -29,22 +34,24 @@ module.exports = function(grunt) {
     },
 
     // Configuration to be run (and then tested).
-    tagged_replace: {
-      default_options: {
+    taggedReplace: {
+      test: {
         options: {
+          values: {
+            tag: 'replace value'
+          }
         },
-        files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
+        expand: true,
+        cwd: 'test/fixtures/',
+        src: '*',
+        dest: '.tmp/'
       },
-      custom_options: {
-        options: {
-          separator: ': ',
-          punctuation: ' !!!'
-        },
-        files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
+      emptyValues: {
+        expand: true,
+        cwd: 'test/fixtures/',
+        src: ['*', 'adsdfgl'],
+        dest: '.tmp/',
+        nonull: true
       }
     },
 
@@ -57,11 +64,6 @@ module.exports = function(grunt) {
 
   // Actually load this plugin's task(s).
   grunt.loadTasks('tasks');
-
-  // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
