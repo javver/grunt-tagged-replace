@@ -1,0 +1,2 @@
+repeating tag 1 /*tag*/ replaced content /*/tag*/ end repeat tag 1
+repeating tag 2 /*tag*/ replaced content /*/tag*/ end repeat tag 2
