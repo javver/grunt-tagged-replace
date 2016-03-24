@@ -1,0 +1,2 @@
+two tags1 /*tag1*/ replaced content 1 /*/tag1*/ end two tags2
+two tags1 /*tag2*/ replaced content 2 /*/tag*2/ end two tags2
