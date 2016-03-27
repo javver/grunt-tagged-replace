@@ -1,1 +1,1 @@
-one tag /*tag*/ /*/tag*/ end one tag
+one tag /*tag*/ replace value /*/tag*/ end one tag

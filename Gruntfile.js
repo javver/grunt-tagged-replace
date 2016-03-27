@@ -55,13 +55,54 @@ module.exports = function(grunt) {
             },
             expand: true,
             cwd: 'test/fixtures',
-            src: 'multifile*.js',
+            src: 'multfile-*.txt',
+            dest: 'tmp/'
+         },
+         'repeating-tags': {
+            options: {
+               values: {
+                  tag: 'replaced content'
+               },
+            },
+            expand: true,
+            cwd: 'test/fixtures',
+            src: 'repeating-tags.txt',
+            dest: 'tmp/'
+         },
+         'two-tags': {
+            options: {
+               values: {
+                  tag1: 'replaced content 1',
+                  tag2: 'replaced content 2'
+               },
+            },
+            expand: true,
+            cwd: 'test/fixtures',
+            src: 'two-tags.txt',
+            dest: 'tmp/'
+         },
+         'unexistent': {
+            expand: true,
+            cwd: 'test/fixtures',
+            src: 'doesnt-exist.txt',
+            dest: 'tmp/',
+            nonull: true
+         },
+         'bad-encoding': {
+            options: {
+               values: {
+               },
+               encoding: null
+            },
+            expand: true,
+            cwd: 'test/fixtures',
+            src: 'bad-encoding.txt',
             dest: 'tmp/'
          },
       },
 
       // Unit tests.
-      mocha: {
+      mochaTest: {
          src: ['./test/*.js']
       },
 
@@ -72,7 +113,7 @@ module.exports = function(grunt) {
 
    // Whenever the "test" task is run, first clean the "tmp" dir, then run this
    // plugin's task(s), then test the result.
-   grunt.registerTask('test', ['clean', 'taggedReplace', 'mocha']);
+   grunt.registerTask('test', ['clean', 'taggedReplace', 'mochaTest']);
 
    // By default, lint and run all tests.
    grunt.registerTask('default', ['jshint', 'test']);
