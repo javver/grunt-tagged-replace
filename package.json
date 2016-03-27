@@ -1,7 +1,7 @@
 {
   "name": "grunt-tagged-replace",
   "description": "Replace pieces of your source using comment tags to identify the location.",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "homepage": "https://github.com/javver/grunt-tagged-replace",
   "main": "tasks/tagged-replace.js",
   "author": {
